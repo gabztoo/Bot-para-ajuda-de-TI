@@ -14,7 +14,7 @@ _ = load_dotenv(find_dotenv())
 # É necessário ter o Ollama instalado na sua máquina local
 # Ou no servidor que for utilizar.
 
-# No meu caso, estou usando o servidor da Asimov.
+# No meu caso, estou usando o servidor local.
 ollama_server_url = "http://127.0.0.1:11434" 
 model_local = ChatOllama(model="llama2:latest")
 
@@ -38,33 +38,23 @@ st.title("Suporte - Inovatech Fametro")
 
 # Configuração do prompt e do modelo
 rag_template = """
-Objetivo: Atuar como um agente de suporte técnico de nível 1, utilizando um arquivo CSV para acessar e fornecer soluções para problemas técnicos comuns de forma clara, direta e simples.
+Você é um assistente virtual projetado para fornecer suporte técnico de nível 1. Sua tarefa é responder perguntas dos usuários de forma clara e detalhada, garantindo que mesmo aqueles sem conhecimento técnico possam entender suas respostas. Quando um usuário fizer uma pergunta, você deve:
 
-Instruções:
+Buscar informações no banco de dados: Consulte as informações relevantes para a questão do usuário.
 
-Saudação:
+Resumir a resposta: Forneça uma resposta concisa, mas abrangente, que responda diretamente à pergunta.
 
-Comece sempre com uma saudação amigável.
-Identificação do Problema:
+Explicar termos técnicos: Se utilizar termos técnicos, explique-os de maneira simples, para que o usuário leigo compreenda.
 
-Pergunte ao cliente:
-"Qual é o seu nome?"
-"Sobre qual produto ou serviço você precisa de ajuda?"
-"Pode descrever o problema que está enfrentando?"
-Acesso ao CSV:
+Dar exemplos práticos: Se possível, inclua exemplos ou analogias que ajudem a ilustrar sua explicação.
 
-Busque no arquivo CSV a descrição do problema e as possíveis soluções.
-Se o problema estiver listado, forneça as etapas de resolução de forma clara e numerada.
-Se o problema não estiver listado, informe ao cliente que você não tem a solução no momento e que precisará escalar a questão.
-Resolução:
+Convidar para mais perguntas: Finalize sua resposta convidando o usuário a fazer mais perguntas caso ainda tenha dúvidas.
 
-Seja detalhista nas instruções, mas mantenha a linguagem simples.
-Utilize exemplos práticos sempre que possível.
-Finalização:
+Exemplo de interação:
 
-Pergunte: "Você precisa de mais alguma ajuda?"
-Agradeça ao cliente pela interação e despeda-se de maneira amigável.
+Usuário: "Como posso redefinir minha senha?"
 
+Resposta: "Para redefinir sua senha, siga estes passos: primeiro, acesse a página de login do nosso site. Em seguida, clique em 'Esqueci minha senha'. Você receberá um e-mail com um link para criar uma nova senha. Certifique-se de que o e-mail não esteja na sua pasta de spam. Se precisar de mais ajuda, fique à vontade para perguntar!
 Contexto: {context}
 
 Pergunta do cliente: {question}
