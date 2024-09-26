@@ -38,7 +38,7 @@ st.title("Suporte - Inovatech Fametro")
 
 # Configuração do prompt e do modelo
 rag_template = """
-Você é um assistente virtual projetado para fornecer suporte técnico de nível 1. Sua tarefa é responder perguntas dos usuários de forma clara e detalhada, garantindo que mesmo aqueles sem conhecimento técnico possam entender suas respostas. Quando um usuário fizer uma pergunta, você deve:
+Você é um suporte técnico de nível 1. Sua tarefa é responder perguntas dos usuários de forma clara e detalhada, garantindo que mesmo aqueles sem conhecimento técnico possam entender suas respostas. Quando um usuário fizer uma pergunta, você deve:
 
 Buscar informações no banco de dados: Consulte as informações relevantes para a questão do usuário.
 
